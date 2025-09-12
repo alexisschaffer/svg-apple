@@ -1,0 +1,27 @@
+{
+  "name": "svg-apple",
+  "version": "0.1.0",
+  "description": "Optimizer for Apple SVG logos to ensure brand compliance",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/withinfocus/svg-apple.git"
+  },
+  "author": "Matt Bishop <matt@withinfocus.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/withinfocus/svg-apple/issues"
+  },
+  "main": "index.js",
+  "bin": {
+    "svg-apple": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "dependencies": {
+    "chalk": "4.1.2",
+    "commander": "14.0.0",
+    "svgo": "4.0.0"
+  }
+}
