@@ -49,50 +49,10 @@ const ensureSquareAspectRatio = {
   }
 };
 
-// Custom plugin to convert style fill attributes to fill attributes
-const convertStyleFillToFillAttribute = {
-  name: 'convertStyleFillToFillAttribute',
-  fn: () => {
-    return {
-      element: {
-        enter: (node) => {
-          if (node.attributes.style) {
-            const style = node.attributes.style;
-            
-            // Match fill property in style attribute
-            const fillMatch = style.match(/fill\s*:\s*([^;]+)/);
-            if (fillMatch) {
-              const fillValue = fillMatch[1].trim();
-              
-              // Set the fill attribute
-              node.attributes.fill = fillValue;
-              
-              // Remove fill from style attribute
-              let newStyle = style.replace(/fill\s*:\s*[^;]+;?/g, '').trim();
-              
-              // Clean up any remaining semicolons or whitespace
-              newStyle = newStyle.replace(/^;+|;+$/g, '').trim();
-              
-              // If style is now empty, remove the attribute entirely
-              if (!newStyle) {
-                delete node.attributes.style;
-              } else {
-                node.attributes.style = newStyle;
-              }
-            }
-          }
-        }
-      }
-    };
-  }
-};
-
 const appleCompliantConfig = {
   plugins: [
     // Ensure 1:1 aspect ratio first
     ensureSquareAspectRatio,
-    // Convert style fill to fill attribute
-    convertStyleFillToFillAttribute,
     // Remove disallowed elements using removeUnknownsAndDefaults
     {
       name: 'removeUnknownsAndDefaults',
@@ -140,6 +100,7 @@ const appleCompliantConfig = {
     // Remove specific disallowed elements
     'removeScriptElement',
     'removeStyleElement',
+    'convertStyleToAttrs',
     
     // Standard SVGO optimizations while maintaining compliance
     'removeDoctype',
