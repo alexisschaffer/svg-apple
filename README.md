@@ -6,7 +6,7 @@ A Node.js console application that optimizes SVG files for Apple brand complianc
 
 - **Apple Brand Compliance**: Optimizes SVG files according to Apple's brand guidelines
 - **Square Aspect Ratio**: Automatically ensures 1:1 aspect ratio with 5% padding for optimal Apple asset formatting
-- **Style Normalization**: Converts CSS `style` fill attributes to standard `fill` attributes
+- **Style Normalization**: Converts CSS `style` attributes to standard attributes
 - **High Compression**: Achieves significant file size reduction while maintaining quality
 - **Validation**: Built-in compliance checking for Apple brand standards
 - **Flexible Output**: Supports custom output paths and directories
